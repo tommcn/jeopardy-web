@@ -1,1 +1,1 @@
-web: cd jeopardy-web && gunicorn jeopardy-web.wsgi
+web: python jeopardy-web/manage.py runserver 0.0.0.0:$PORT
