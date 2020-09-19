@@ -1,7 +1,13 @@
 window.addEventListener('DOMContentLoaded', (event) => {
     
     const categories = JSON.parse(document.getElementById('cats').textContent);
+    createData(categories)
+});
+
+function createData(categories)
+{
     const table = $('#jeopardy-table');
+    table.html('');
     const questions_per_cat = categories[0].questions.length;
     const number_of_cats = categories.length;
 
@@ -27,10 +33,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     }
 
     table.append(tbody);
-    
-});
 
-
+}
 
 
 function showQuestion(question, points) 

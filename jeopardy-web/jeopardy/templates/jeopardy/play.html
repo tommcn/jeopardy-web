@@ -69,7 +69,30 @@
           }
         }
     </script>
-    <button onclick="openFullscreen()">FS</button>
+    <br />
+    <button onclick="openFullscreen()">Fullscreen :)</button>
+    <input type="file" onchange="showFile(this)">
+
+    <script>
+      function showFile(input) {
+        let file = input.files[0];
+
+        console.log("start")
+        var reader = new FileReader();
+        reader.onload = function(){
+            var dataURL = reader.result;
+            const dataStr = atob(dataURL.replace(/^data:application\/json;base64,/, ""));
+            const dataSTR = dataStr.replace(new RegExp("'", 'g'), '"');
+            console.log(dataSTR);
+            const data = JSON.parse(dataSTR);
+            console.log(data);
+            createData(data);
+        };
+        reader.readAsDataURL(input.files[0]);
+    
+      }
+    </script>
+
         
 
 {% endblock %}
