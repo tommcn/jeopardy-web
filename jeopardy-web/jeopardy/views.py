@@ -23,6 +23,16 @@ class PlayView(View):
     def post(self, request):
         # Stuff to do in POST request
         return "POST"
+    
+class SaveView(View):
+    def get(self, request):
+        # Stuff to do in GET request        
+        return render(request, 'jeopardy/save.html')
+
+    def post(self, request):
+        # Stuff to do in POST request
+        return "POST"
+
 
 @method_decorator(csrf_exempt, name='dispatch')
 class BuildView(View):

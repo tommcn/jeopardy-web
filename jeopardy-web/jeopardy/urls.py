@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from .views import BuildView, PlayView
+from .views import BuildView, PlayView, SaveView
 
 urlpatterns = [
     path('', PlayView.as_view(), name='play'),
-    path('build/', BuildView.as_view(), name='build')
+    path('build/', BuildView.as_view(), name='build'),
+    path('save/', SaveView.as_view(), name="save")
 ]
