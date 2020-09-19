@@ -82,9 +82,8 @@
         reader.onload = function(){
             var dataURL = reader.result;
             const dataStr = atob(dataURL.replace(/^data:application\/json;base64,/, ""));
-            const dataSTR = dataStr.replace(new RegExp("'", 'g'), '"');
-            console.log(dataSTR);
-            const data = JSON.parse(dataSTR);
+            console.log(dataStr);
+            const data = JSON.parse(dataStr);
             console.log(data);
             createData(data);
         };

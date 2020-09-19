@@ -9,7 +9,7 @@ function createData(categories)
     const table = $('#jeopardy-table');
     table.html('');
     const questions_per_cat = categories[0].questions.length;
-    const number_of_cats = categories.length;
+    // const number_of_cats = categories.length;
 
     // Create Headers
     const thead = $('<thead></thead>');
@@ -26,7 +26,8 @@ function createData(categories)
     {
         const questions = [];
         categories.forEach((el, idx) => {
-            const button = $(`<span id="q-${i}-${idx}" onclick="showQuestion('${el.questions[i].question}', ${el.questions[i].points}); $('#q-${i}-${idx}').addClass('asked');"></span>`).text(el.questions[i].points); //  remove aattr onclick
+            console.log(el.questions[i].question);
+            const button = $(`<span id="q-${i}-${idx}" onclick="showQuestion(\`${el.questions[i].question}\`, ${el.questions[i].points}); $('#q-${i}-${idx}').addClass('asked');"></span>`).text(el.questions[i].points); //  remove aattr onclick
             questions.push($('<td></td>').append(button));
         });
         tbody.append($(`<tr id=row-${i}></tr>`).append(questions))

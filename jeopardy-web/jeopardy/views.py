@@ -4,6 +4,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from django.shortcuts import redirect
 
+import json
+
 
 # Create your views here.
 class PlayView(View):
@@ -53,7 +55,7 @@ class SaveView(View):
 
         # print(board)
         
-        return render(request, 'jeopardy/save.html', context={'json': str(board)})
+        return render(request, 'jeopardy/save.html', context={'json': json.dumps(board)})
 
 
 @method_decorator(csrf_exempt, name='dispatch')
