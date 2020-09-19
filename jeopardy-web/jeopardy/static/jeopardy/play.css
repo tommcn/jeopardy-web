@@ -34,6 +34,10 @@ table {
     height: 100vh;
 }
 
+table span {
+    font-size: xx-large;
+}
+
 .asked {
     color: red;
 }
