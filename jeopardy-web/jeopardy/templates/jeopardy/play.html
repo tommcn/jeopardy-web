@@ -2,7 +2,7 @@
 
 {% load static %}
 {% block title %}
-    Play!
+    Play Jeopardy Online!
 {% endblock %}
 {% block body %}
 
@@ -13,6 +13,7 @@
     <h1>
         Play!
     </h1>
+    <p>We recommend playing with a 250% zoom as it looks alot better. 😊</p>
     <a href="{% url 'build' %}">Build</a>
     <div id="fullscreen-container">
         <table id='jeopardy-table'></table>
@@ -70,7 +71,7 @@
         }
     </script>
     <br />
-    <button onclick="openFullscreen()">Fullscreen :)</button>
+    <button onclick="openFullscreen()">Fullscreen 😊</button>
     <input type="file" onchange="showFile(this)">
 
     <script>
