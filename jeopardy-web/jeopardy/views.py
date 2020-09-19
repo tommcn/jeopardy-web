@@ -17,6 +17,7 @@ class PlayView(View):
                 {'name': 'animal 5', 'questions': [{'points': 100, 'question': 'Q1-animal 5'},{'points': 200, 'question': 'Q2-animal 5'},{'points': 300, 'question': 'Q3-animal 5'}]}            
             ]
         }
+        
         return render(request, 'jeopardy/play.html', context=context)
 
     def post(self, request):
