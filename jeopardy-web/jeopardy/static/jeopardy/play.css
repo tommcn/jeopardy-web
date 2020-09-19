@@ -1,0 +1,38 @@
+table {
+    background-color: rgb(32, 32, 218);
+    border-collapse: collapse;
+}
+table, th, td {
+    border: 1px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+}
+
+td, th {
+    font-size: larger;
+    padding: 7px;
+}
+  
+
+table thead {
+    color: white;
+}
+
+thead {
+    border-bottom: 3px solid black;
+}
+
+table tbody {
+    color: gold
+}
+table tbody span {
+    cursor: pointer;
+}
+
+.asked {
+    color: red;
+}
+
+/* table tbody tr td::before {
+    content: "$";
+} */
