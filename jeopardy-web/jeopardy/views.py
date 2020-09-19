@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, View
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
+
 
 # Create your views here.
 class PlayView(View):
@@ -20,7 +23,7 @@ class PlayView(View):
         # Stuff to do in POST request
         return "POST"
 
-
+@method_decorator(csrf_exempt, name='dispatch')
 class BuildView(View):
     def get(self, request):
         # Stuff to do in GET request
@@ -28,6 +31,26 @@ class BuildView(View):
 
     def post(self, request):
         # Stuff to do in POST request
-        return "POST"
+        data = request.POST
+        collums = int(data['categories'])
+        rows = int(data['rows'])
+        
+        # For all of the quesitons and points, make a 2d array and store all of the info in them on a per lign basis (just reading throught the list given in)
+        # Then write them all in
+        questions = [[]]
+        questions = [[x for x in range(collums)] for y in range(rows)]
+        print(questions)
+        for i in range(rows):
+            for x in range(collums):
+                questions[i][x]= {'points': data[str(x) + '_' + str(i) + '_value'], 'question':data[str(x) + '_' + str(i) + '_question']}
+
+        # Link the catgories and the questions
+        board = []
+        for i in range(collums):
+            board.append({"name":data[str(i) + "_catergory_name"], "questions": questions[i]})
+
+        print(board)
+        
+        return render(request, 'jeopardy/build.html')
 
 

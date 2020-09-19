@@ -1,4 +1,5 @@
 {% extends 'jeopardy/base.html' %}
+{% load static %}
 {% block title %}
     Build!
 {% endblock %}
@@ -6,10 +7,24 @@
     <h1>
         Setup the jeopardy board
     </h1>
-    <label for="rows">Number of rows:</label><br>
-    <input type="number" id="rows" name="rows" min="1" max="10">
-    {% for i in rows %}
-    <h1>:) </h1>
-    {% endfor %}
+    <form method='POST'>
+        <input type="text" placeholder="Paste the saved list here">
+        <input type="submit" value="Load">
+    </form>
+    <br>
+    <form method="POST">
+        <label for="categories">Number of categories:</label>
+        <input type="number" id="categories" name="categories" min="1" max="10" value="5">
+        <label for="rows">Number of question rows:</label>
+        <input type="number" id="rows" name="rows" min="1" max="10" value="5">
+        <input type="button" value="Set" onclick="loadBoxes();">
+
+        <div id="board">
+            <!-- Nothing here because the javascrip script will add the text boxes to be shown -->
+        </div>
+    </form> 
+    
     <a href="{% url 'play' %}">Play</a>
+    <link rel="stylesheet" href="{% static 'jeopardy/styles.css' %}" />
+    <script src="{% static 'jeopardy/main.js' %}"></script>
 {% endblock %}
