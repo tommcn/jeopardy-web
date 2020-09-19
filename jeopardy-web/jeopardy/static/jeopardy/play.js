@@ -26,7 +26,7 @@ function createData(categories)
     {
         const questions = [];
         categories.forEach((el, idx) => {
-            const button = $(`<span id="q-${i}-${idx}" onclick="showQuestion('${el.questions[i].question}', ${el.questions[i].points}); $('#q-${i}-${idx}').addClass('asked'); $('#q-${i}-${idx}').removeAttr('onclick');"></span>`).text(el.questions[i].points);
+            const button = $(`<span id="q-${i}-${idx}" onclick="showQuestion('${el.questions[i].question}', ${el.questions[i].points}); $('#q-${i}-${idx}').addClass('asked');"></span>`).text(el.questions[i].points); //  remove aattr onclick
             questions.push($('<td></td>').append(button));
         });
         tbody.append($(`<tr id=row-${i}></tr>`).append(questions))
