@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView, View
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
+from django.shortcuts import redirect
 
 
 # Create your views here.
@@ -23,22 +24,12 @@ class PlayView(View):
     def post(self, request):
         # Stuff to do in POST request
         return "POST"
-    
-class SaveView(View):
-    def get(self, request):
-        # Stuff to do in GET request        
-        return render(request, 'jeopardy/save.html')
-
-    def post(self, request):
-        # Stuff to do in POST request
-        return "POST"
-
 
 @method_decorator(csrf_exempt, name='dispatch')
-class BuildView(View):
+class SaveView(View):
     def get(self, request):
-        # Stuff to do in GET request
-        return render(request, 'jeopardy/build.html')
+        # Send the user back to the play page caus they should not send a get here      
+        return redirect("play")
 
     def post(self, request):
         # Stuff to do in POST request
@@ -50,7 +41,7 @@ class BuildView(View):
         # Then write them all in
         questions = [[]]
         questions = [[x for x in range(collums)] for y in range(rows)]
-        print(questions)
+        # print(questions)
         for i in range(rows):
             for x in range(collums):
                 questions[i][x]= {'points': data[str(x) + '_' + str(i) + '_value'], 'question':data[str(x) + '_' + str(i) + '_question']}
@@ -60,8 +51,19 @@ class BuildView(View):
         for i in range(collums):
             board.append({"name":data[str(i) + "_catergory_name"], "questions": questions[i]})
 
-        print(board)
+        # print(board)
         
+        return render(request, 'jeopardy/save.html', context={'json': str(board)})
+
+
+@method_decorator(csrf_exempt, name='dispatch')
+class BuildView(View):
+    def get(self, request):
+        # Stuff to do in GET request
+        return render(request, 'jeopardy/build.html')
+
+    def post(self, request):
+        # Make the load feature
         return render(request, 'jeopardy/build.html')
 
 

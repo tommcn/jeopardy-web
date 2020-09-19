@@ -1,9 +1,14 @@
 {% extends 'jeopardy/base.html' %}
 {% load static %}
-
 {% block title %}
-    Save!
+    Save!  
 {% endblock %}
 {% block body %}
-Save
+It should have downloaded the file :)
+<br />
+<br />
+{{ json | json_script:"json" }}
+<script src="{% static 'jeopardy/main.js' %}"></script>
+<script>save()</script>
+<a href="{% url 'play' %}">Play</a>
 {% endblock %}
