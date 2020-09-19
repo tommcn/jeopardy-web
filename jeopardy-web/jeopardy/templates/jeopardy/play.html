@@ -1,4 +1,6 @@
 {% extends 'jeopardy/base.html' %}
+
+{% load static %}
 {% block title %}
     Play!
 {% endblock %}
@@ -7,4 +9,11 @@
         Play!
     </h1>
     <a href="{% url 'build' %}">Build</a>
+
+    <table id='jeopardy-table'></table>
+
+    {{ categories | json_script:"cats" }}
+    <link rel="stylesheet" href="{% static 'jeopardy/play.css' %}" />
+    <script src="{% static 'jeopardy/play.js' %}"></script>
+
 {% endblock %}
