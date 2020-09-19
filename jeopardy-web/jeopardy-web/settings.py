@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get("JEOPARDY_SECRET_KEY", None)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'jeopardy-claudel.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', 'super-jeopardy.herokuapp.com']
 
 
 # Application definition
