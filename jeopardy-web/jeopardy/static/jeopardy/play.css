@@ -29,10 +29,20 @@ table tbody span {
     cursor: pointer;
 }
 
+table {
+    width: 100vw;
+    height: 100vh;
+}
+
 .asked {
     color: red;
 }
 
-/* table tbody tr td::before {
-    content: "$";
-} */
+.modal {
+    margin-top: 40vh;
+}
+
+.modal-body {
+    font-size: xx-large;
+}
+
