@@ -3,7 +3,6 @@ from django.views.generic import TemplateView, View
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from django.shortcuts import redirect
-
 import json
 
 
@@ -42,11 +41,13 @@ class SaveView(View):
         # For all of the quesitons and points, make a 2d array and store all of the info in them on a per lign basis (just reading throught the list given in)
         # Then write them all in
         questions = [[]]
-        questions = [[x for x in range(collums)] for y in range(rows)]
+        questions = [[x for x in range(rows)] for y in range(collums)]
         # print(questions)
         for i in range(rows):
             for x in range(collums):
-                questions[i][x]= {'points': data[str(x) + '_' + str(i) + '_value'], 'question':data[str(x) + '_' + str(i) + '_question']}
+                questions[x][i]= {'points': data[str(i) + '_' + str(x) + '_value'], 'question':data[str(i) + '_' + str(x) + '_question']}
+
+        print(questions)
 
         # Link the catgories and the questions
         board = []
