@@ -7,9 +7,9 @@
     <h1>
         Setup the jeopardy board
     </h1>
-    <form method='POST'>
-        <input type="text" placeholder="Paste the saved list here">
-        <input type="submit" value="Load">
+    <form>
+        <label for="file_load">Load a saved file:</label>
+        <input type="file" id="file_load" onchange="loadFile(this)">
     </form>
     <br>
     <form method="POST" action="/save/">
