@@ -47,12 +47,16 @@ class SaveView(View):
             for x in range(collums):
                 questions[x][i]= {'points': data[str(i) + '_' + str(x) + '_value'], 'question':data[str(i) + '_' + str(x) + '_question']}
 
-        print(questions)
+        # print(questions)
 
         # Link the catgories and the questions
         board = []
         for i in range(collums):
             board.append({"name":data[str(i) + "_catergory_name"], "questions": questions[i]})
+
+        # Add the final quesiton, category and the isFinal=True
+        
+        board.append({"name":data["final_category"], "question":data["final_question"], "isFinal":True})
 
         # print(board)
         

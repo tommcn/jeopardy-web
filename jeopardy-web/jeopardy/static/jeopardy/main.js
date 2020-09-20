@@ -5,7 +5,7 @@ function loadBoxes()
     const rows = document.querySelector('#rows').value;
 
     //Make the html block that will be added
-    var html = "";
+    var html = '<br />'
     //var html = `<form method='POST' action="/build/">`;
     //Make the cattegory name row
     for(var x = 0; x< catergories; x++)
@@ -31,8 +31,12 @@ function loadBoxes()
         html = html + '<br />' + '<br />';
     }
 
+    //Add the final jeopardy
+    html = html + '<br />' + '<br />' + '<input type="text" id= final_category' +' name="final_category" '+ '" placeholder="Final Category">';
+    html = html + '<br />' + '<input type="text" id= final_question' +' name="final_question" '+ '" placeholder="Final Jeopardy">';
+
     //Close the form
-    html = html + '<input type="submit" value="Save">';
+    html = html + '<br />' + '<br />' + '<input type="submit" value="Save">';
     //console.log(html);
 
     //Write the html to the page
@@ -105,7 +109,10 @@ function loadFile(input) {
             
         }
         console.log(html);
-        
+
+        //Add the final jeopardy
+        html = html + '<br />' + '<br />' + '<input type="text" id= final_category' +' name="final_category" '+ '" value= "' + data[catergories]["category"] + '">';
+        html = html + '<br />' + '<input type="text" id= final_question' +' name="final_question" '+ '" value= "' + data[catergories]["question"] + '">';
         //Close the form
         html = html + '<input type="submit" value="Save">';
         console.log(html);
