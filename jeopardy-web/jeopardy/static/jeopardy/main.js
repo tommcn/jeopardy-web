@@ -73,7 +73,7 @@ function loadFile(input) {
         //console.log(dataStr);
 
         //console.log(typeof(dataStr));
-        catergories = data.length;
+        catergories = data.length - 1;
         rows = data[0]["questions"].length;
         console.log(String(catergories) + ":" + String(rows))
 
@@ -85,7 +85,7 @@ function loadFile(input) {
         for(var x = 0; x< catergories; x++)
         {
             console.log("cat" + x);
-            html = html + '<input type="text" id="' + x.toString() + "_catergory_name" +" name="+ x.toString() + "_catergory_name" + '"value=' + data[x]["name"] + '>';
+            html = html + '<input type="text" id="' + x.toString() + '_catergory_name"' +' name="'+ x.toString() + '_catergory_name" ' + 'value="' + data[x]["name"] + '">';
         }
         html = html + '<br />' + '<br />';
 
@@ -111,10 +111,10 @@ function loadFile(input) {
         console.log(html);
 
         //Add the final jeopardy
-        html = html + '<br />' + '<br />' + '<input type="text" id= final_category' +' name="final_category" '+ '" value= "' + data[catergories]["category"] + '">';
+        html = html + '<br />' + '<br />' + '<input type="text" id= final_category' +' name="final_category" '+ '" value= "' + data[catergories]["name"] + '">';
         html = html + '<br />' + '<input type="text" id= final_question' +' name="final_question" '+ '" value= "' + data[catergories]["question"] + '">';
         //Close the form
-        html = html + '<input type="submit" value="Save">';
+        html = html + '<br />' + '<br />' + '<input type="submit" value="Save">';
         console.log(html);
 
         //Write the html to the page
