@@ -1,10 +1,13 @@
 {% extends 'jeopardy/base.html' %}
 {% load static %}
 {% block title %}
-    Save - Jeopardy!  
+    Save - Jeopardy! 
 {% endblock %}
 {% block body %}
 It should have downloaded the file :)
+<br />
+<br />
+<img src="{% static 'jeopardy/favicon.ico' %}" style="width: 9%; height: auto;" alt="Jeopardy Online Logo"/>
 <br />
 <br />
 {{ json | json_script:"json" }}
