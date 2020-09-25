@@ -77,6 +77,10 @@ function loadFile(input) {
         rows = data[0]["questions"].length;
         console.log(String(catergories) + ":" + String(rows))
 
+        // set the rows and categories to the visible board
+        document.querySelector('#categories').value = catergories;
+        document.querySelector('#rows').value = rows;
+
         // Generate the board the same way as in loadBoxes
         // we set the rows and collums depending on the ammount of cattegories and the number of questions in the first cattegory
         
