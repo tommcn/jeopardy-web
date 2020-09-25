@@ -50,3 +50,21 @@ table span {
     font-size: xx-large;
 }
 
+.FJ-modal-body {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: none;
+}
+
+.FJ-modal-body.enabled {
+    display: block;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding-top: 35%;
+    font-size: xx-large;
+}
+
