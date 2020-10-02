@@ -89,7 +89,7 @@ function loadFile(input) {
         for(var x = 0; x< catergories; x++)
         {
             console.log("cat" + x);
-            html = html + '<input type="text" id="' + x.toString() + '_catergory_name"' +' name="'+ x.toString() + '_catergory_name" ' + 'value="' + data[x]["name"] + '">';
+            html = html + '<input type="text" id="' + x.toString() + '_catergory_name"' +' name="'+ x.toString() + '_catergory_name" ' + 'value="' + data[x]["name"] + '" placeholder="Enter your catergory name">';
         }
         html = html + '<br />' + '<br />';
 
@@ -107,7 +107,7 @@ function loadFile(input) {
             for(var x = 0; x< catergories; x++)
             {
                 console.log("quest" + x);
-                html = html + '<input type="text" id=' + i.toString() + "_" + x.toString() + "_question" +' name="'+ i.toString() + "_" + x.toString() + "_question" + '" value= "' + data[x]["questions"][i]["question"] + '">';
+                html = html + '<input type="text" id=' + i.toString() + "_" + x.toString() + "_question" +' name="'+ i.toString() + "_" + x.toString() + "_question" + '" value= "' + data[x]["questions"][i]["question"] + '" placeholder="Enter your question"  >';
             }
             html = html + '<br />' + '<br />';
             
@@ -115,8 +115,8 @@ function loadFile(input) {
         console.log(html);
 
         //Add the final jeopardy
-        html = html + '<br />' + '<br />' + '<input type="text" id= final_category' +' name="final_category" '+ '" value= "' + data[catergories]["name"] + '">';
-        html = html + '<br />' + '<input type="text" id= final_question' +' name="final_question" '+ '" value= "' + data[catergories]["question"] + '">';
+        html = html + '<br />' + '<br />' + '<input type="text" id= final_category' +' name="final_category" '+ '" value= "' + data[catergories]["name"] + '" placeholder="Final Category">';
+        html = html + '<br />' + '<input type="text" id= final_question' +' name="final_question" '+ '" value= "' + data[catergories]["question"] + '" placeholder="Final Jeopardy">';
         //Close the form
         html = html + '<br />' + '<br />' + '<input type="submit" value="Save">';
         console.log(html);
