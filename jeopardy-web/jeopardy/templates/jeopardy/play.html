@@ -90,6 +90,7 @@
             console.log(dataStr);
             const data = JSON.parse(dataStr);
             console.log(data);
+            document.getElementById('cats').textContent = data;
             createData(data);
         };
         reader.readAsDataURL(input.files[0]);

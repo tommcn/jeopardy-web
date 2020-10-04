@@ -6,6 +6,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 function createData(categories)
 {
+    $('.FJ-modal-body').removeClass("enabled")
     const table = $('#jeopardy-table');
     table.html('');
     const questions_per_cat = categories[0].questions.length; // minus final cate
@@ -21,6 +22,8 @@ function createData(categories)
             row.append($("<th></th>").text(el.name));
         } else {
             $('.FJ-modal-body').text(el.question);
+            $('.FJ-modal-body').append($('<br />'));
+            $('.FJ-modal-body').append($(`<button></button>`).text("Reset").attr("onclick", "createData(JSON.parse(document.getElementById('cats').textContent))"))
         }
     });
     thead.append(row);
@@ -60,7 +63,6 @@ function showQuestion(question, points)
         {
             console.log("DONE!")
             $('.FJ-modal-body').addClass("enabled")
-        
         }
     })
     
