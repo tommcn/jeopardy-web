@@ -44,7 +44,7 @@ function createData(categories)
         categories.forEach((el, idx) => {
             if (el.isFinal)
             {
-                console.log("asdasd")
+                //console.log("asdasd")
             }  else {
                 console.log(el.questions[i].question);
                 const button = $(`<span class="q" id="q-${i}-${idx}" onclick="showQuestion(\`${el.questions[i].question.replaceAll(new RegExp('"', 'g'), "&quot;")}\`, ${el.questions[i].points}); $('#q-${i}-${idx}').addClass('asked');"></span>`).text(el.questions[i].points); //  remove aattr onclick
