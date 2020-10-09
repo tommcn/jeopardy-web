@@ -22,7 +22,9 @@ function createData(categories)
             row.append($("<th></th>").text(el.name));
         } else {
             console.log(el.name, el.question)
-            $('#final-question').append(el.question);
+            $('.FJ-modal-body').text(``);
+            $('.FJ-modal-body').append(`<div class="collapse" id="final-question"></div>`);
+            $('#final-question').text(el.question);
             $('.FJ-modal-body').append($('<br />'));
             $('.FJ-modal-body').append(el.name);
             $('.FJ-modal-body').append($('<br />'));
