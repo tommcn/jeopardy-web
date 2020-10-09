@@ -21,9 +21,15 @@ function createData(categories)
 
             row.append($("<th></th>").text(el.name));
         } else {
-            $('.FJ-modal-body').text(el.question);
+            console.log(el.name, el.question)
+            $('#final-question').append(el.question);
             $('.FJ-modal-body').append($('<br />'));
-            $('.FJ-modal-body').append($(`<button></button>`).text("Reset").attr("onclick", "createData(JSON.parse(document.getElementById('cats').textContent))"))
+            $('.FJ-modal-body').append(el.name);
+            $('.FJ-modal-body').append($('<br />'));
+        
+            $('.FJ-modal-body').append($(`<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#final-question" aria-expanded="false" aria-controls="collapseExample"></button>`).text("Hide/Show final Question"))
+            $('.FJ-modal-body').append($('<br />'));
+            $('.FJ-modal-body').append($(`<button class="btn btn-primary"></button>`).text("Reset").attr("onclick", "createData(JSON.parse(document.getElementById('cats').textContent))"))
         }
     });
     thead.append(row);

@@ -27,7 +27,10 @@
             </div>
         </div>
         <div class="FJ-modal-body">
-            ...
+
+          <div class="collapse" id="final-question">
+          </div>
+          
         </div>
 
     
@@ -90,7 +93,7 @@
             console.log(dataStr);
             const data = JSON.parse(dataStr);
             console.log(data);
-            document.getElementById('cats').textContent = data;
+            document.getElementById('cats').textContent = JSON.stringify(data);
             createData(data);
         };
         reader.readAsDataURL(input.files[0]);
