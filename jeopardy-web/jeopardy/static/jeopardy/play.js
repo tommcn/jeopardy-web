@@ -20,6 +20,8 @@ function createData(categories)
         {
 
             row.append($("<th></th>").text(el.name));
+        } else if (el.meta) {
+                // Meta stuff
         } else {
             console.log(el.name, el.question)
             $('.FJ-modal-body').text(``);
